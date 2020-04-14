@@ -19,6 +19,15 @@ jobs:
         run: |
           docker build -t seekwe/go-builder:latest ./docker/1.11/
           docker push seekwe/go-builder:latest
+          docker build -t seekwe/go-builder:1.14 ./docker/1.11/
+      - name: Docker build 1.14
+        run: |
+          docker build -t seekwe/go-builder:1.14 ./docker/1.11/
+          docker push seekwe/go-builder:1.14
+      - name: Docker build alpine
+        run: |
+          docker build -t seekwe/go-builder:1.11-alpine ./docker/1.11-alpine/
+          docker push seekwe/go-builder:1.11-alpine
       - name: Docker build other
         run: |
           docker build -t seekwe/go-builder:1.11-alpine ./docker/1.11-alpine/
