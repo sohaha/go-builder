@@ -32,7 +32,7 @@ FROM base AS osx-sdk
 ARG OSX_SDK
 ARG OSX_SDK_SUM
 ADD https://s3.dockerproject.org/darwin/v2/${OSX_SDK}.tar.xz "${OSX_CROSS_PATH}/tarballs/${OSX_SDK}.tar.xz"
-# RUN echo "${OSX_SDK_SUM}"  "${OSX_CROSS_PATH}/tarballs/${OSX_SDK}.tar.xz" | sha256sum -c -
+RUN echo "${OSX_SDK_SUM}"  "${OSX_CROSS_PATH}/tarballs/${OSX_SDK}.tar.xz" | sha256sum -c -
 
 FROM base AS osx-cross-base
 ARG DEBIAN_FRONTEND=noninteractive
@@ -73,8 +73,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -qq && apt-get install -y -q --no-install-recommends \
     libltdl-dev \
     gcc-mingw-w64 \
+    gcc-multilib \
     parallel \
-    && rm -rf /var/lib/apt/lists/* /tmp/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* \
+    && curl -L https://raw.githubusercontent.com/sohaha/zzz/master/install.sh | bash  
 
 COPY --from=osx-cross "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
 COPY --from=libtool   "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
