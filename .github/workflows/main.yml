@@ -22,19 +22,19 @@ jobs:
           docker build -t seekwe/go-builder:1.14 ./docker/1.14/
       - name: Docker build 1.14
         run: |
-          docker build -t seekwe/go-builder:14 ./docker/1.14/
+          docker build -t seekwe/go-builder:1.14 ./docker/1.14/
           docker push seekwe/go-builder:14
-      - name: Docker build 1.14
+      - name: Docker build 1.13
         run: |
-          docker build -t seekwe/go-builder:13 ./docker/1.14/
-          docker push seekwe/go-builder:13
-      - name: Docker build other
+          docker build -t seekwe/go-builder:1.13 ./docker/1.13/
+          docker push seekwe/go-builder:1.13
+      - name: Docker build 1.12
+        run: |
+          docker build -t seekwe/go-builder:1.12 ./docker/1.12/
+          docker push seekwe/go-builder:1.12
+      - name: Docker build 1.11
         run: |
           docker build -t seekwe/go-builder:1.11 ./docker/1.11/
           docker push seekwe/go-builder:1.11
-          docker build -t seekwe/go-builder:1.12 ./docker/1.12/
-          docker push seekwe/go-builder:1.12
-          docker build -t seekwe/go-builder:1.13 ./docker/1.13/
-          docker push seekwe/go-builder:1.13
-          docker build -t seekwe/go-builder:1.14 ./docker/1.14/
-          docker push seekwe/go-builder:1.14
+      - name: Docker build other
+        run: ls
