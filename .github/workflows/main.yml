@@ -23,7 +23,7 @@ jobs:
       - name: Docker build 1.14
         run: |
           docker build -t seekwe/go-builder:1.14 ./docker/1.14/
-          docker push seekwe/go-builder:14
+          docker push seekwe/go-builder:1.14
       - name: Docker build 1.13
         run: |
           docker build -t seekwe/go-builder:1.13 ./docker/1.13/
