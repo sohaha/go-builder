@@ -31,6 +31,17 @@ jobs:
         run: |
           docker build -t seekwe/go-builder:1.14.2 ./docker/1.14.2/
           docker push seekwe/go-builder:1.14.2
+  build-1-14-base:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v1
+      - name: Docker login
+        run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
+      - name: Docker build
+        run: |
+          docker build -t seekwe/go-builder:1.14-base ./docker/1.14-base/
+          docker push seekwe/go-builder:1.14-base
   build-1-14:
     runs-on: ubuntu-latest
     steps:
