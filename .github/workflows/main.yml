@@ -40,7 +40,7 @@ jobs:
         run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
       - name: Docker build
         run: |
-          docker build -t seekwe/go-builder:1.14-base ./docker/1.14-base/
+          docker build -t seekwe/go-builder:1.14-base ./docker/1.14_base/
           docker push seekwe/go-builder:1.14-base
   build-1-14:
     runs-on: ubuntu-latest
