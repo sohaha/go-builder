@@ -42,7 +42,7 @@ jobs:
         run: |
           docker build -t seekwe/go-builder:1.14 ./docker/1.14/
           docker push seekwe/go-builder:1.14
-  build-1.13:
+  build-1-13:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
