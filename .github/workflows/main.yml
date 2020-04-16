@@ -20,7 +20,7 @@ jobs:
           docker build -t seekwe/go-builder:latest ./docker/1.14.2/
           docker push seekwe/go-builder:latest
           docker build -t seekwe/go-builder:1.14.2 ./docker/1.14.2/
-  build-1.14.2:
+  build-114-2:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -31,7 +31,7 @@ jobs:
         run: |
           docker build -t seekwe/go-builder:1.14.2 ./docker/1.14.2/
           docker push seekwe/go-builder:1.14.2
-  build-1.14:
+  build-1-14:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -53,7 +53,7 @@ jobs:
         run: |
           docker build -t seekwe/go-builder:1.13 ./docker/1.13/
           docker push seekwe/go-builder:1.13
-  build-1.12:
+  build-1-12:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -64,7 +64,7 @@ jobs:
         run: |
           docker build -t seekwe/go-builder:1.12 ./docker/1.12/
           docker push seekwe/go-builder:1.12
-  build-1.11:
+  build-1-11:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
