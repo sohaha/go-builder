@@ -75,8 +75,7 @@ RUN apt-get update -qq && apt-get install -y -q --no-install-recommends \
     gcc-mingw-w64 \
     gcc-multilib \
     parallel \
-    && rm -rf /var/lib/apt/lists/* /tmp/* \
-    && curl -L https://raw.githubusercontent.com/sohaha/zzz/master/install.sh | bash  
+    && rm -rf /var/lib/apt/lists/* /tmp/* 
 
 COPY --from=osx-cross "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
 COPY --from=libtool   "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
