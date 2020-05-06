@@ -20,7 +20,7 @@ ARG LIBTOOL_VERSION=2.4.6
 # once an updated version of the SDK is available on s3.dockerproject.org
 ARG OSX_CODENAME=yosemite
 
-FROM golang:${GO_VERSION}-buster AS base
+FROM golang:${GO_VERSION} AS base
 ARG APT_MIRROR
 
 # RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
