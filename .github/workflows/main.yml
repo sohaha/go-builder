@@ -8,81 +8,25 @@ on:
     #   - 'docker/*'
 
 jobs:
-  build:
+  build-15:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
         uses: actions/checkout@v1
       - name: Docker login
         run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
-      - name: Docker build latest
+      - name: Docker build 1.15
         run: |
-          docker build -t seekwe/go-builder:latest ./docker/1.14.2/
-          docker push seekwe/go-builder:latest
-          docker build -t seekwe/go-builder:1.14.2 ./docker/1.14.2/
-  build-114-2:
+          docker build -t seekwe/go-builder:1.15 ./docker/1.15/
+          docker push seekwe/go-builder:1.15
+  build-15-2:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
         uses: actions/checkout@v1
       - name: Docker login
         run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
-      - name: Docker build 1.14.2
+      - name: Docker build 1.15.2
         run: |
-          docker build -t seekwe/go-builder:1.14.2 ./docker/1.14.2/
-          docker push seekwe/go-builder:1.14.2
-  build-1-14-base:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v1
-      - name: Docker login
-        run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
-      - name: Docker build
-        run: |
-          docker build -t seekwe/go-builder:1.14-base ./docker/1.14_base/
-          docker push seekwe/go-builder:1.14-base
-  build-1-14:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v1
-      - name: Docker login
-        run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
-      - name: Docker build 1.14
-        run: |
-          docker build -t seekwe/go-builder:1.14 ./docker/1.14/
-          docker push seekwe/go-builder:1.14
-  build-1-13:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v1
-      - name: Docker login
-        run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
-      - name: Docker build 1.13
-        run: |
-          docker build -t seekwe/go-builder:1.13 ./docker/1.13/
-          docker push seekwe/go-builder:1.13
-  build-1-12:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v1
-      - name: Docker login
-        run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
-      - name: Docker build 1.12
-        run: |
-          docker build -t seekwe/go-builder:1.12 ./docker/1.12/
-          docker push seekwe/go-builder:1.12
-  build-1-11:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v1
-      - name: Docker login
-        run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
-      - name: Docker build 1.11
-        run: |
-          docker build -t seekwe/go-builder:1.11 ./docker/1.11/
-          docker push seekwe/go-builder:1.11
+          docker build -t seekwe/go-builder:1.15.2 ./docker/1.15.2/
+          docker push seekwe/go-builder:1.15.2
