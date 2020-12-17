@@ -2,7 +2,7 @@
 
 容器化的构建环境，方便跨平台交叉编译 Go 程序
 
-[详细使用文档](https://docs.73zls.com/zls-go/#/5535a0e0-7043-40af-96da-a077dd21be22)
+[详细使用文档](https://docs.73zls.com/zlsgo/#/5535a0e0-7043-40af-96da-a077dd21be22)
 
 ## 使用方法
 
@@ -31,3 +31,15 @@ docker run --rm -it -v $(pwd):/app -w /app seekwe/go-builder:1.11 sh -c 'GO111MO
 ```
 
 ## 可用版本
+
+go-builder:latest
+
+go-builder:1.11
+
+go-builder:1.12
+
+go-builder:1.13
+
+go-builder:1.14
+
+go-builder:1.15
