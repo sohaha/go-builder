@@ -8,6 +8,18 @@ on:
     #   - 'docker/*'
 
 jobs:
+  build-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v1
+      - name: Docker login
+        run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
+      - name: Docker build latest
+        run: |
+          docker build -t seekwe/go-builder:latest ./docker/latest/
+          docker push seekwe/go-builder:latest
+          docker build -t seekwe/go-builder:latest ./docker/latest/
   build-15:
     runs-on: ubuntu-latest
     steps:
@@ -19,14 +31,3 @@ jobs:
         run: |
           docker build -t seekwe/go-builder:1.15 ./docker/1.15/
           docker push seekwe/go-builder:1.15
-  build-15-2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v1
-      - name: Docker login
-        run: docker login -u seekwe -p ${{ secrets.DOCKER_HUB_PWD }}
-      - name: Docker build 1.15.2
-        run: |
-          docker build -t seekwe/go-builder:1.15.2 ./docker/1.15.2/
-          docker push seekwe/go-builder:1.15.2
